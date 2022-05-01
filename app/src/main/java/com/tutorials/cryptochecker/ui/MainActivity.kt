@@ -1,7 +1,8 @@
-package com.tutorials.cryptochecker
+package com.tutorials.cryptochecker.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.tutorials.cryptochecker.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
