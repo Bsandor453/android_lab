@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.ui
+package hu.bme.cryptochecker.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
