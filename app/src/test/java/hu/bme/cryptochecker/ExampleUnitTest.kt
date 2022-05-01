@@ -1,4 +1,4 @@
-package com.tutorials.cryptochecker
+package hu.bme.cryptochecker
 
 import org.junit.Test
 
