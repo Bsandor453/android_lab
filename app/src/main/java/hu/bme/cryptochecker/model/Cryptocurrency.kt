@@ -2,7 +2,7 @@ package hu.bme.cryptochecker.model
 
 // Example cryptocurrency data
 data class Cryptocurrency(
-    val name: String,
-    val price: Double,
-    val referenceCurrency: String
+    val id: String,
+    val symbol: String,
+    val name: String
 )
