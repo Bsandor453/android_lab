@@ -13,10 +13,6 @@ import javax.inject.Named
 class DetailsActivity : AppCompatActivity() {
 
     @Inject
-    @Named("DummyNetworkService")
-    lateinit var networkService: String
-
-    @Inject
     @Named("DummyPersistenceService")
     lateinit var persistenceService: String
 
