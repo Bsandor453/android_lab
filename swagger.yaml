@@ -13,6 +13,8 @@ tags:
   description: "Endpoints used to get general information about crypto coins."
 - name: "history"
   description: "Endpoints used to get historical price data about crypto coins."
+- name: "mock"
+  description: "Endpoints used only in mock calls. These are not provided by the public API."
 paths:
   /api/v3/coins/markets:
     get:
@@ -64,6 +66,94 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/Cryptocurrency"
+  /api/v3/coins/{id}:
+    get:
+      summary: "Get the description of a coin."
+      operationId: "getCoinDescription"
+      tags: 
+      - "coins"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The coin id (eg. bitcoin)."
+        required: true
+        type: "string"
+      - name: "localization"
+        in: "query"
+        description: "Include all localized languages in response (true/false). Default: true."
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "Ok. Request successful."
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Description"
+    put:
+      tags:
+      - "mock"
+      summary: "Add a new coin."
+      operationId: "updateCoin"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The coin id (eg. bitcoin)."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Cryptocurrency object that you want to update the current object to."
+        required: true
+        schema:
+          $ref: "#/definitions/Cryptocurrency"
+      responses:
+        "200":
+          description: "Ok. Request successful."
+    delete:
+      tags:
+      - "mock"
+      summary: "Add a new coin."
+      operationId: "deleteCoin"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The coin id (eg. bitcoin)."
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Ok. Request successful."
+  /api/v3/coins:
+    post:
+      tags:
+      - "mock"
+      summary: "Add a new coin."
+      operationId: "addCoin"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Cryptocurrency object that you want to add."
+        required: true
+        schema:
+          $ref: "#/definitions/Cryptocurrency"
+      responses:
+        "200":
+          description: "Ok. Request successful."
   /api/v3/coins/{id}/market_chart:
     get:
       summary: "Get historical prices of a given coin."
@@ -121,7 +211,6 @@ definitions:
       type: "number"
     minItems: 2
     maxItems: 2
-
   HistoricalPrices:
     type: "object"
     properties:
@@ -134,4 +223,9 @@ definitions:
           $ref: "#/definitions/HistoricalPrice"
     xml:
       name: "HistoricalPrices"
+  Description:
+    type: "object"
+    properties:
+      en:
+        type: "string"
     
