@@ -1,23 +1,18 @@
 package hu.bme.cryptochecker.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.cryptochecker.R
 import hu.bme.cryptochecker.databinding.ActivityMainBinding
 import hu.bme.cryptochecker.ui.main.fragments.favourite.FavouriteCryptoFragment
 import hu.bme.cryptochecker.ui.main.fragments.popular.PopularCryptoFragment
-import javax.inject.Inject
-import javax.inject.Named
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    @Inject
-    @Named("DummyNetworkService")
-    lateinit var networkService: String
 
     // ViewModel inject
     private val viewModel: MainViewModel by viewModels()
@@ -38,6 +33,15 @@ class MainActivity : AppCompatActivity() {
         binding.favouriteButton.setOnClickListener {
             replaceFragment(FavouriteCryptoFragment())
         }
+
+        // Test get currencies list
+        viewModel.getCurrenciesList()
+        viewModel.cryptocurrencies.observe(this) { coins ->
+            coins.forEachIndexed { index, coin ->
+                Log.d("Coin", coin.name + ", Index: " + index)
+            }
+        }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
