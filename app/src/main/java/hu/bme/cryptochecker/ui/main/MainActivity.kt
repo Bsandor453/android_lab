@@ -37,8 +37,11 @@ class MainActivity : AppCompatActivity() {
         // Test get currencies list
         viewModel.getCurrenciesList()
         viewModel.cryptocurrencies.observe(this) { coins ->
-            Log.d("Example coin", coins[0].symbol)
+            coins.forEachIndexed { index, coin ->
+                Log.d("Coin", coin.name + ", Index: " + index)
+            }
         }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
