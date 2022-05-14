@@ -29,6 +29,12 @@ class DetailsActivity : AppCompatActivity() {
         viewModel.historyData.observe(this) { history ->
             Log.d("Example history", history.prices[0].toString())
         }
+
+        // Test get description
+        viewModel.getDescription()
+        viewModel.description.observe(this) { description ->
+            Log.d("Example description", description)
+        }
     }
 
 }

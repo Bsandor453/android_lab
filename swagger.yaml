@@ -91,7 +91,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Description"
+              $ref: "#/definitions/CoinDescription"
     put:
       tags:
       - "mock"
@@ -223,6 +223,17 @@ definitions:
           $ref: "#/definitions/HistoricalPrice"
     xml:
       name: "HistoricalPrices"
+  CoinDescription:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+      symbol:
+        type: "string"
+      en:
+        $ref: "#/definitions/Description"
   Description:
     type: "object"
     properties:

@@ -1,6 +1,7 @@
 package hu.bme.cryptochecker.modules.network
 
 import hu.bme.cryptochecker.model.dto.Cryptocurrency
+import hu.bme.cryptochecker.model.dto.CoinDescription
 import hu.bme.cryptochecker.model.dto.HistoricalPrices
 import retrofit2.Response
 import retrofit2.http.GET
@@ -14,5 +15,8 @@ interface CryptoApi {
 
     @GET("coins/{id}/market_chart")
     suspend fun getCoinsMarketChart(@Path("id") coinId: String, @Query("vs_currency") vs_currency: String, @Query("days") daysAgo: Int): Response<HistoricalPrices>
+
+    @GET("coins/{id}")
+    suspend fun getCoinsDescription(@Path("id") coinId: String, @Query("localization") localization: Boolean): Response<CoinDescription>
 
 }
