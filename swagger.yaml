@@ -32,7 +32,7 @@ paths:
         type: "string"
       - name: "ids"
         in: "query"
-        description: "The ids of the coin, comma separated crytocurrency symbols (base). When left empty, returns numbers the coins observing the params limit and start."
+        description: "The ids of the coin, comma separated cryptocurrency symbols (base). When left empty, returns numbers the coins observing the params limit and start."
         required: false
         type: "string"
       - name: "order"
@@ -95,7 +95,7 @@ paths:
     put:
       tags:
       - "mock"
-      summary: "Add a new coin."
+      summary: "Update a coin."
       operationId: "updateCoin"
       consumes:
       - "application/json"
@@ -119,7 +119,7 @@ paths:
     delete:
       tags:
       - "mock"
-      summary: "Add a new coin."
+      summary: "Delete a coin."
       operationId: "deleteCoin"
       consumes:
       - "application/json"
