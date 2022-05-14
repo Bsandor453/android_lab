@@ -4,23 +4,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import hu.bme.cryptochecker.model.Cryptocurrency
-import hu.bme.cryptochecker.modules.network.CryptoApi
+import hu.bme.cryptochecker.model.dto.Cryptocurrency
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import javax.inject.Inject
-import javax.inject.Named
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val mainRepository: MainRepository) : ViewModel() {
 
-    val testResponse: MutableLiveData<Response<Array<Cryptocurrency>>> = MutableLiveData()
+    val cryptocurrencies: MutableLiveData<List<Cryptocurrency>> = MutableLiveData()
 
-    fun test() {
+    fun getCurrenciesList() {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = mainRepository.getCurrencies()
-            testResponse.postValue(response)
+            val list = mainRepository.getCurrencies()
+            cryptocurrencies.postValue(list)
         }
     }
 

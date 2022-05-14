@@ -2,6 +2,7 @@ package hu.bme.cryptochecker.ui.details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.cryptochecker.R
@@ -22,6 +23,12 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+
+        // Test get history
+        viewModel.getHistoryData()
+        viewModel.historyData.observe(this) { history ->
+            Log.d("Example history", history.prices[0].toString())
+        }
     }
 
 }

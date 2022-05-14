@@ -34,16 +34,10 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(FavouriteCryptoFragment())
         }
 
-        // Test
-        viewModel.test()
-
-        viewModel.testResponse.observe(this) { response ->
-            if (response.isSuccessful) {
-                Log.d("Response success", response.body()?.get(0)!!.symbol)
-            } else {
-                val responseBodyStringError = response.code()
-                Log.d("Response fail", responseBodyStringError.toString())
-            }
+        // Test get currencies list
+        viewModel.getCurrenciesList()
+        viewModel.cryptocurrencies.observe(this) { coins ->
+            Log.d("Example coin", coins[0].symbol)
         }
     }
 
