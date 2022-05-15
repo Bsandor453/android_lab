@@ -42,6 +42,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Test get currencies cached
+        viewModel.cryptocurrenciesCached.observe(this) { coins ->
+            coins.forEachIndexed { index, coin ->
+                Log.d("Coin cached", coin.name + ", Index: " + index)
+            }
+        }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {

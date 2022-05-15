@@ -1,8 +1,8 @@
 package hu.bme.cryptochecker.modules.network
 
-import hu.bme.cryptochecker.model.dto.Cryptocurrency
-import hu.bme.cryptochecker.model.dto.CoinDescription
-import hu.bme.cryptochecker.model.dto.HistoricalPrices
+import hu.bme.cryptochecker.model.dto.CryptocurrencyDto
+import hu.bme.cryptochecker.model.dto.CoinDescriptionDto
+import hu.bme.cryptochecker.model.dto.HistoricalPricesDto
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -28,7 +28,7 @@ interface CryptoApi {
         @Query("order") order: String? = null,
         @Query("per_page") per_page: String? = null,
         @Query("page") page: String? = null
-    ): Response<List<Cryptocurrency>>
+    ): Response<List<CryptocurrencyDto>>
 
     /**
      * Get historical prices of a given coin.
@@ -42,7 +42,7 @@ interface CryptoApi {
         @Path("id") coinId: String,
         @Query("vs_currency") vs_currency: String,
         @Query("days") daysAgo: Int
-    ): Response<HistoricalPrices>
+    ): Response<HistoricalPricesDto>
 
     /**
      * Get the description of a coin.
@@ -54,7 +54,7 @@ interface CryptoApi {
     suspend fun getCoinsDescription(
         @Path("id") coinId: String,
         @Query("localization") localization: Boolean? = null
-    ): Response<CoinDescription>
+    ): Response<CoinDescriptionDto>
 
     // Mock API calls, that are only used in mocked calls
 
@@ -64,7 +64,7 @@ interface CryptoApi {
      * @return Response<Void>
      */
     @POST("coins")
-    suspend fun addCoin(@Body coin: Cryptocurrency): Response<Void>
+    suspend fun addCoin(@Body coin: CryptocurrencyDto): Response<Void>
 
     /**
      * Update a coin.

@@ -13,10 +13,6 @@ import javax.inject.Named
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
-    @Inject
-    @Named("DummyPersistenceService")
-    lateinit var persistenceService: String
-
     // ViewModel inject
     private val viewModel: DetailsViewModel by viewModels()
 

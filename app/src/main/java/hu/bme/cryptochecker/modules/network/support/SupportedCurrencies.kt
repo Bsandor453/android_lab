@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.modules.support
+package hu.bme.cryptochecker.modules.network.support
 
 // The application supports 100 cryptocurrencies from the coins with highest market capitalization
 enum class SupportedCurrencies(val coinName: String, val id: String) {

@@ -1,16 +1,43 @@
 package hu.bme.cryptochecker.ui.main
 
-import android.util.Log
-import hu.bme.cryptochecker.model.dto.Cryptocurrency
+import androidx.lifecycle.LiveData
+import hu.bme.cryptochecker.model.db.Cryptocurrency
+import hu.bme.cryptochecker.model.db.HistoricalPrice
+import hu.bme.cryptochecker.model.dto.CryptocurrencyDto
 import hu.bme.cryptochecker.modules.network.CryptoApi
-import hu.bme.cryptochecker.modules.support.SupportedCurrencies
+import hu.bme.cryptochecker.modules.network.support.SupportedCurrencies
+import hu.bme.cryptochecker.persistence.CryptocurrencyDao
 import javax.inject.Inject
 import javax.inject.Named
 
-class MainRepository @Inject constructor(@Named("CryptoApi") private val cryptoApi: CryptoApi) {
+class MainRepository @Inject constructor(
+    @Named("CryptoApi") private val cryptoApi: CryptoApi,
+    @Named("CryptoDao") private val cryptocurrencyDao: CryptocurrencyDao
+    ) {
 
-    suspend fun getCurrencies(): List<Cryptocurrency> {
-        return cryptoApi.getCoinsMarkets("usd", convertSupportedCurrenciesToParameterList()).body()!!
+    val currenciesCached: LiveData<List<Cryptocurrency>> = cryptocurrencyDao.readAllData()
+
+    suspend fun getCurrencies(): List<CryptocurrencyDto> {
+        val coins = cryptoApi.getCoinsMarkets("usd", convertSupportedCurrenciesToParameterList()).body()!!
+
+        // Add all coins to local db
+        for(coin in coins) {
+            addNewCoinLocal(coin)
+        }
+
+        return coins
+    }
+
+    private suspend fun addNewCoinLocal(coin: CryptocurrencyDto) {
+        val newCoin = Cryptocurrency(
+            coin.id,
+            coin.name,
+            coin.symbol,
+            coin.price,
+            coin.imageUrl,
+            "",
+            false)
+        cryptocurrencyDao.addCryptocurrency(newCoin)
     }
 
     private fun convertSupportedCurrenciesToParameterList(): String {
@@ -24,7 +51,6 @@ class MainRepository @Inject constructor(@Named("CryptoApi") private val cryptoA
                 coins[i].id + ","
             }
         }
-        Log.d("apple", parameterList)
         return parameterList
     }
 
