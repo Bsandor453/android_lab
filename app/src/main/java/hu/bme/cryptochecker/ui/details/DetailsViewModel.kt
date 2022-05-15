@@ -5,9 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import hu.bme.cryptochecker.model.dto.Cryptocurrency
-import hu.bme.cryptochecker.model.dto.HistoricalPrices
-import hu.bme.cryptochecker.ui.main.MainRepository
+import hu.bme.cryptochecker.model.dto.HistoricalPricesDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,7 +14,7 @@ import javax.inject.Inject
 class DetailsViewModel @Inject constructor(private val detailsRepository: DetailsRepository) : ViewModel() {
 
     private val coinId = "bitcoin"
-    val historyData: MutableLiveData<HistoricalPrices> = MutableLiveData()
+    val historyData: MutableLiveData<HistoricalPricesDto> = MutableLiveData()
     val description: MutableLiveData<String> = MutableLiveData()
 
     fun getHistoryData() {

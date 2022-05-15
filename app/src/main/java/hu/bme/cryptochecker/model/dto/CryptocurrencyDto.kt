@@ -3,7 +3,7 @@ package hu.bme.cryptochecker.model.dto
 import com.google.gson.annotations.SerializedName
 
 // Contains general information about a cryptocurrency
-data class Cryptocurrency (
+data class CryptocurrencyDto (
     @SerializedName("id")
     val id: String,
     @SerializedName("name")

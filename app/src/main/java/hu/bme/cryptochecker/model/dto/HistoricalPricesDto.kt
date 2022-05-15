@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 // Inner list format: [timestamp, price]
 // timestamp: UNIX timestamp
 // price: The price in USD at the given time
-data class HistoricalPrices (
+data class HistoricalPricesDto (
     @SerializedName("prices")
     val prices: List<List<Number>>
 )
