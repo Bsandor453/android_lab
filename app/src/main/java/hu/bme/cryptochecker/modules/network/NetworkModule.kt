@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,7 +15,9 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class Network {
+open class NetworkModule {
+
+    protected open fun baseUrl() = NetworkConfig.API_BASE_URL.toHttpUrl()
 
     @Provides
     @Singleton
@@ -36,7 +39,7 @@ class Network {
     fun provideCryptoApi(client: OkHttpClient): CryptoApi {
         val retrofit = Retrofit.Builder()
             .client(client)
-            .baseUrl(NetworkConfig.API_BASE_URL)
+            .baseUrl(baseUrl())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         return retrofit.create(CryptoApi::class.java)
