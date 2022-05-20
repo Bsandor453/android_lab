@@ -1,16 +1,17 @@
-package hu.bme.cryptochecker.ui.main.fragments.favourite
+package hu.bme.cryptochecker.ui.main_view.fragments.favourite
 
 import android.content.Intent
-import hu.bme.cryptochecker.R
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
-import hu.bme.cryptochecker.ui.details.DetailsActivity
+import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
+import hu.bme.cryptochecker.R
+import hu.bme.cryptochecker.ui.details_view.DetailsActivity
 
+@AndroidEntryPoint
 class FavouriteCryptoFragment : Fragment() {
 
     override fun onCreateView(

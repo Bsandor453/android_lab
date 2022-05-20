@@ -3,4 +3,5 @@
     <string name="activity_details_text">Crypto details view</string>
     <string name="fragment_popular_text">Popular currencies list</string>
     <string name="fragment_favourite_text">Favourite currencies list</string>
+    <string name="coin_symbol_text">(%s)</string>
 </resources>

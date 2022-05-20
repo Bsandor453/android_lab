@@ -17,7 +17,7 @@ interface CryptocurrencyDao {
     suspend fun addHistory(priceHistory: PriceHistory)
 
     // Read
-    @Query("SELECT * FROM coins ORDER BY id ASC")
+    @Query("SELECT * FROM coins")
     fun readAllData(): LiveData<List<Cryptocurrency>>
 
     @Transaction

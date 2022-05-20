@@ -1,8 +1,7 @@
-package hu.bme.cryptochecker.ui.main
+package hu.bme.cryptochecker.ui.main_view
 
 import androidx.lifecycle.LiveData
 import hu.bme.cryptochecker.model.db.Cryptocurrency
-import hu.bme.cryptochecker.model.db.HistoricalPrice
 import hu.bme.cryptochecker.model.dto.CryptocurrencyDto
 import hu.bme.cryptochecker.modules.network.CryptoApi
 import hu.bme.cryptochecker.modules.network.support.SupportedCurrencies

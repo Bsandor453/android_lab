@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.ui.main
+package hu.bme.cryptochecker.ui.main_view
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,6 +17,7 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
     val cryptocurrencies: MutableLiveData<List<CryptocurrencyDto>> = MutableLiveData()
     val cryptocurrenciesCached: LiveData<List<Cryptocurrency>> = mainRepository.currenciesCached
 
+    // TODO: Only log! For testing!
     fun getCurrenciesList() {
         viewModelScope.launch(Dispatchers.IO) {
             val list = mainRepository.getCurrencies()

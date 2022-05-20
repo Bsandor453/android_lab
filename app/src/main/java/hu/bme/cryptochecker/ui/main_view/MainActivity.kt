@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.ui.main
+package hu.bme.cryptochecker.ui.main_view
 
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.cryptochecker.R
 import hu.bme.cryptochecker.databinding.ActivityMainBinding
-import hu.bme.cryptochecker.ui.main.fragments.favourite.FavouriteCryptoFragment
-import hu.bme.cryptochecker.ui.main.fragments.popular.PopularCryptoFragment
+import hu.bme.cryptochecker.ui.main_view.fragments.favourite.FavouriteCryptoFragment
+import hu.bme.cryptochecker.ui.main_view.fragments.popular.PopularCryptoFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

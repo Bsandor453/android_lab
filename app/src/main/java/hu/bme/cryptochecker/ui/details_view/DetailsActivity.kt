@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.ui.details
+package hu.bme.cryptochecker.ui.details_view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,9 +6,6 @@ import android.util.Log
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.cryptochecker.R
-import hu.bme.cryptochecker.databinding.ActivityMainBinding
-import javax.inject.Inject
-import javax.inject.Named
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {

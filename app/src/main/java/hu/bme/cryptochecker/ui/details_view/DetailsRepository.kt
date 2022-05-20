@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.ui.details
+package hu.bme.cryptochecker.ui.details_view
 
 import hu.bme.cryptochecker.model.dto.HistoricalPricesDto
 import hu.bme.cryptochecker.modules.network.CryptoApi

@@ -102,6 +102,10 @@ dependencies {
     // Unit testing
     testImplementation("com.google.dagger:hilt-android-testing:2.38.1")
     kaptTest("com.google.dagger:hilt-android-compiler:2.38.1")
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 }
 
 // Allow references to generated code

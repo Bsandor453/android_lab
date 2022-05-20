@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.ui.main.fragments.favourite
+package hu.bme.cryptochecker.ui.main_view.fragments.favourite
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

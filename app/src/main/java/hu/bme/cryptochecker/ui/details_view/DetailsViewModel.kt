@@ -1,4 +1,4 @@
-package hu.bme.cryptochecker.ui.details
+package hu.bme.cryptochecker.ui.details_view
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
