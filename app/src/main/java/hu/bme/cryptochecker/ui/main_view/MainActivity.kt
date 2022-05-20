@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import hu.bme.cryptochecker.R
 import hu.bme.cryptochecker.databinding.ActivityMainBinding
@@ -33,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         binding.favouriteButton.setOnClickListener {
             replaceFragment(FavouriteCryptoFragment())
         }
+
+        setupActionBarWithNavController(findNavController(R.id.fragment_container))
 
         // Test get currencies list
         viewModel.getCurrenciesList()

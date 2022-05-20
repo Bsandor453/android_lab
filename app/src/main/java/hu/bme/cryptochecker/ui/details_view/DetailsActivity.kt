@@ -1,21 +1,27 @@
 package hu.bme.cryptochecker.ui.details_view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.navArgs
 import dagger.hilt.android.AndroidEntryPoint
-import hu.bme.cryptochecker.R
+import hu.bme.cryptochecker.databinding.ActivityDetailsBinding
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
-    // ViewModel inject
     private val viewModel: DetailsViewModel by viewModels()
+    private val args by navArgs<DetailsActivityArgs>()
+    private lateinit var binding: ActivityDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_details)
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Test set text
+        binding.detailsText.text = args.selectedCoin.name
 
         // Test get history
         viewModel.getHistoryData()
