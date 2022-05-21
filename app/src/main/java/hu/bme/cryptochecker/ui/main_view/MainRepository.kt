@@ -53,4 +53,12 @@ class MainRepository @Inject constructor(
         return parameterList
     }
 
+    suspend fun addCoinToFavourites(coinId: String) {
+        cryptocurrencyDao.updateCryptocurrencyFavourite(coinId, true)
+    }
+
+    suspend fun removeCoinFromFavourites(coinId: String) {
+        cryptocurrencyDao.updateCryptocurrencyFavourite(coinId, false)
+    }
+
 }

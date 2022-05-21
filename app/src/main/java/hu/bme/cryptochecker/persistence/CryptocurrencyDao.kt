@@ -28,6 +28,10 @@ interface CryptocurrencyDao {
     @Update
     suspend fun updateCryptocurrency(cryptocurrency: Cryptocurrency)
 
+    @Transaction
+    @Query("UPDATE coins SET isFavourite = :favourite WHERE id = :id")
+    suspend fun updateCryptocurrencyFavourite(id: String, favourite: Boolean)
+
     // Delete
     @Delete
     suspend fun deleteCryptocurrency(cryptocurrency: Cryptocurrency)

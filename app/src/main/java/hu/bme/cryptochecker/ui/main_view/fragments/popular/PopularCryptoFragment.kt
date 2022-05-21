@@ -31,8 +31,16 @@ class PopularCryptoFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentPopularBinding.inflate(inflater, container, false)
 
-        // Set RecyclerView
-        val coinListAdapter = ListAdapter()
+        /* Set RecyclerView */
+
+        // Create adapter with favourite button callback
+        val coinListAdapter = ListAdapter { coinId, favourite ->
+            if (favourite) {
+                viewModel.addToFavourite(coinId)
+            } else {
+                viewModel.removeFavourite(coinId)
+            }
+        }
         val coinList = binding.coinList
         coinList.adapter = coinListAdapter
         coinList.layoutManager = LinearLayoutManager(requireContext())

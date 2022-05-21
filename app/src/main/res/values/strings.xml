@@ -4,4 +4,6 @@
     <string name="fragment_popular_text">Popular currencies list</string>
     <string name="fragment_favourite_text">Favourite currencies list</string>
     <string name="coin_symbol_text">(%s)</string>
+    <string name="set_favourite_text">Add favourite</string>
+    <string name="remove_favourite_text">Remove favourite</string>
 </resources>
