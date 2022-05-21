@@ -14,9 +14,10 @@ class MainRepository @Inject constructor(
     @Named("CryptoDao") private val cryptocurrencyDao: CryptocurrencyDao
     ) {
 
-    val currenciesCached: LiveData<List<Cryptocurrency>> = cryptocurrencyDao.readAllData()
+    val currencies: LiveData<List<Cryptocurrency>> = cryptocurrencyDao.getAllCryptocurrencies()
+    val favouriteCurrencies: LiveData<List<Cryptocurrency>> = cryptocurrencyDao.getFavouriteCryptocurrencies()
 
-    suspend fun getCurrencies(): List<CryptocurrencyDto> {
+    suspend fun getCurrenciesFromApi(): List<CryptocurrencyDto> {
         val coins = cryptoApi.getCoinsMarkets("usd", convertSupportedCurrenciesToParameterList()).body()!!
 
         // Add all coins to local db

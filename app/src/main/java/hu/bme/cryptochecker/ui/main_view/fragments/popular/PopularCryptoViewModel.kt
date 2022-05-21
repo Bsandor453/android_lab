@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PopularCryptoViewModel @Inject constructor(private val mainRepository: MainRepository) : ViewModel() {
 
-    val popularCoins: LiveData<List<Cryptocurrency>> = mainRepository.currenciesCached
+    val popularCoins: LiveData<List<Cryptocurrency>> = mainRepository.currencies
 
     fun addToFavourite(coinId: String){
         viewModelScope.launch(Dispatchers.IO) {

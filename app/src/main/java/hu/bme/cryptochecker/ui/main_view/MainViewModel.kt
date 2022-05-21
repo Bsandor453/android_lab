@@ -15,12 +15,12 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val mainRepository: MainRepository) : ViewModel() {
 
     val cryptocurrencies: MutableLiveData<List<CryptocurrencyDto>> = MutableLiveData()
-    val cryptocurrenciesCached: LiveData<List<Cryptocurrency>> = mainRepository.currenciesCached
+    val cryptocurrenciesCached: LiveData<List<Cryptocurrency>> = mainRepository.currencies
 
     // TODO: Only log! For testing!
     fun getCurrenciesList() {
         viewModelScope.launch(Dispatchers.IO) {
-            val list = mainRepository.getCurrencies()
+            val list = mainRepository.getCurrenciesFromApi()
             cryptocurrencies.postValue(list)
         }
     }

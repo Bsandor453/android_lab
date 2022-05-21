@@ -15,7 +15,7 @@ class MockCryptocurrencyDao: CryptocurrencyDao {
         TODO("Not yet implemented")
     }
 
-    override fun readAllData(): LiveData<List<Cryptocurrency>> {
+    override fun getAllCryptocurrencies(): LiveData<List<Cryptocurrency>> {
         val testCryptocurrency =
             Cryptocurrency("btc",
                 "Bitcoin",
@@ -29,11 +29,19 @@ class MockCryptocurrencyDao: CryptocurrencyDao {
         TODO("Not yet implemented")
     }
 
+    override fun getFavouriteCryptocurrencies(): LiveData<List<Cryptocurrency>> {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getCryptocurrencyWithPriceHistories(id: String): List<CryptocurrencyWithPriceHistories> {
         TODO("Not yet implemented")
     }
 
     override suspend fun updateCryptocurrency(cryptocurrency: Cryptocurrency) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun updateCryptocurrencyFavourite(id: String, favourite: Boolean) {
         TODO("Not yet implemented")
     }
 

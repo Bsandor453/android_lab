@@ -18,7 +18,10 @@ interface CryptocurrencyDao {
 
     // Read
     @Query("SELECT * FROM coins")
-    fun readAllData(): LiveData<List<Cryptocurrency>>
+    fun getAllCryptocurrencies(): LiveData<List<Cryptocurrency>>
+
+    @Query("SELECT * FROM coins WHERE isFavourite = 1")
+    fun getFavouriteCryptocurrencies(): LiveData<List<Cryptocurrency>>
 
     @Transaction
     @Query("SELECT * FROM coins WHERE id = :id")

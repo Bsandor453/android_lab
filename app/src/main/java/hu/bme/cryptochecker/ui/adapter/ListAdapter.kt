@@ -61,7 +61,7 @@ class ListAdapter(private val onSetFavouriteCallback: (coinId: String, favourite
             binding.buttonFavourite.text = binding.root.context.getString(R.string.remove_favourite_text)
             binding.buttonFavourite.setOnClickListener {
                 // Call the given callback function -> Remove favourite
-                onSetFavouriteCallback( currentItem.id, false)
+                onSetFavouriteCallback(currentItem.id, false)
             }
         }
 

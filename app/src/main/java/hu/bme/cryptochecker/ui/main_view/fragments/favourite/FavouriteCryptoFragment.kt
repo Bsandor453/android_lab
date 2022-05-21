@@ -1,35 +1,52 @@
 package hu.bme.cryptochecker.ui.main_view.fragments.favourite
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import hu.bme.cryptochecker.R
-import hu.bme.cryptochecker.ui.details_view.DetailsActivity
+import hu.bme.cryptochecker.databinding.FragmentFavouriteBinding
+import hu.bme.cryptochecker.ui.adapter.ListAdapter
 
 @AndroidEntryPoint
 class FavouriteCryptoFragment : Fragment() {
 
+    private var _binding: FragmentFavouriteBinding? = null
+    private val binding get() = _binding!!
+
+    // Inject ViewModel
+    private val viewModel: FavouriteCryptoViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favourite, container, false)
-    }
+        _binding = FragmentFavouriteBinding.inflate(inflater, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        /* Set RecyclerView */
 
-        // Create navigation to details view
-        view.findViewById<Button>(R.id.details_button)?.setOnClickListener {
-            val intent = Intent(activity, DetailsActivity::class.java)
-            activity?.startActivity(intent)
+        // Create adapter with favourite button callback
+        val coinListAdapter = ListAdapter { coinId, favourite ->
+            if (favourite) {
+                viewModel.addToFavourite(coinId)
+            } else {
+                viewModel.removeFavourite(coinId)
+            }
         }
+        val coinList = binding.coinList
+        coinList.adapter = coinListAdapter
+        coinList.layoutManager = LinearLayoutManager(requireContext())
+
+        // Set RecyclerView Data
+        viewModel.favouriteCoins.observe(viewLifecycleOwner) { coins ->
+            coinListAdapter.setData(coins)
+        }
+
+        return binding.root
     }
 
 }
