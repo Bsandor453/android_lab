@@ -24,8 +24,12 @@ interface CryptocurrencyDao {
     fun getFavouriteCryptocurrencies(): LiveData<List<Cryptocurrency>>
 
     @Transaction
+    @Query("SELECT * FROM coins")
+    fun getCryptocurrencyWithPriceHistories(): LiveData<List<CryptocurrencyWithPriceHistories>>
+
+    @Transaction
     @Query("SELECT * FROM coins WHERE id = :id")
-    suspend fun getCryptocurrencyWithPriceHistories(id: String): List<CryptocurrencyWithPriceHistories>
+    fun getCryptocurrencyWithPriceHistories(id: String): LiveData<CryptocurrencyWithPriceHistories>
 
     // Update
     @Update
@@ -34,6 +38,10 @@ interface CryptocurrencyDao {
     @Transaction
     @Query("UPDATE coins SET isFavourite = :favourite WHERE id = :id")
     suspend fun updateCryptocurrencyFavourite(id: String, favourite: Boolean)
+
+    @Transaction
+    @Query("UPDATE coins SET description = :description WHERE id = :id")
+    suspend fun updateCryptocurrencyDescription(id: String, description: String)
 
     // Delete
     @Delete
