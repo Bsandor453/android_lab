@@ -3,4 +3,17 @@
     <string name="activity_details_text">Crypto details view</string>
     <string name="fragment_popular_text">Popular currencies list</string>
     <string name="fragment_favourite_text">Favourite currencies list</string>
+    <string name="coin_symbol_text">(%s)</string>
+    <string name="set_favourite_text">Add favourite</string>
+    <string name="remove_favourite_text">Remove favourite</string>
+    <string name="one_day_button_text">1 day</string>
+    <string name="seven_day_button_text">7 days</string>
+    <string name="thirty_day_button_text">30 days</string>
+    <string name="coin_image_description">Coin image</string>
+    <string name="coin_default_name">Bitcoin</string>
+    <string name="coin_default_symbol">(BTC)</string>
+    <string name="coin_default_price">$ 30000</string>
+    <string name="favourite_button_text">Add favourite</string>
+    <string name="details_button_text">Details...</string>
+    <string name="default_description_text">Description</string>
 </resources>
