@@ -40,6 +40,9 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Set title
+        supportActionBar?.title = args.selectedCoin.name + " details"
+
         // Set text views
         binding.nameText.text = args.selectedCoin.name
         val symbolText = "(${args.selectedCoin.symbol.uppercase(Locale.getDefault())})"

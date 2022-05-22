@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,9 @@ class PopularCryptoFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentPopularBinding.inflate(inflater, container, false)
+
+        // Set title
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Popular coins"
 
         /* Set RecyclerView */
 
