@@ -38,15 +38,13 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(findNavController(R.id.fragment_container))
 
-        // Test get currencies list
+        // Logging data and cached data for testing
         viewModel.getCurrenciesList()
         viewModel.cryptocurrencies.observe(this) { coins ->
             coins.forEachIndexed { index, coin ->
                 Log.d("Coin", coin.name + ", Index: " + index)
             }
         }
-
-        // Test get currencies cached
         viewModel.cryptocurrenciesCached.observe(this) { coins ->
             coins.forEachIndexed { index, coin ->
                 Log.d("Coin cached", coin.name + ", Index: " + index)

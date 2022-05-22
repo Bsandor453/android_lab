@@ -32,7 +32,7 @@ interface CryptocurrencyDao {
 
     @Transaction
     @Query("SELECT * FROM coins WHERE id = :id")
-    fun getCryptocurrencyWithPriceHistories(id: String): LiveData<CryptocurrencyWithPriceHistories>
+    suspend fun getCryptocurrencyWithPriceHistories(id: String): LiveData<CryptocurrencyWithPriceHistories>
 
     @Transaction
     @Query("SELECT COUNT(*) FROM coins INNER JOIN history ON coins.id = history.cryptoId WHERE coins.id = :id AND history.daysAgo = :days")

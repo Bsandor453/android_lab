@@ -2,6 +2,7 @@ package hu.bme.cryptochecker.mock.data
 
 import androidx.lifecycle.LiveData
 import hu.bme.cryptochecker.model.db.Cryptocurrency
+import hu.bme.cryptochecker.model.db.HistoricalPrice
 import hu.bme.cryptochecker.model.db.PriceHistory
 import hu.bme.cryptochecker.model.db.relations.CryptocurrencyWithPriceHistories
 import hu.bme.cryptochecker.persistence.CryptocurrencyDao
@@ -33,7 +34,15 @@ class MockCryptocurrencyDao: CryptocurrencyDao {
         TODO("Not yet implemented")
     }
 
-    override suspend fun getCryptocurrencyWithPriceHistories(id: String): List<CryptocurrencyWithPriceHistories> {
+    override fun getCryptocurrencyWithPriceHistories(): LiveData<List<CryptocurrencyWithPriceHistories>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getCryptocurrencyWithPriceHistories(id: String): LiveData<CryptocurrencyWithPriceHistories> {
+        TODO("Not yet implemented")
+    }
+
+    override fun countCryptocurrencyHistory(id: String, days: Int): Int {
         TODO("Not yet implemented")
     }
 
@@ -42,6 +51,18 @@ class MockCryptocurrencyDao: CryptocurrencyDao {
     }
 
     override suspend fun updateCryptocurrencyFavourite(id: String, favourite: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun updateCryptocurrencyDescription(id: String, description: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun updateCryptocurrencyHistory(
+        coinHistory: List<HistoricalPrice>,
+        coinId: String,
+        daysAgo: Int
+    ) {
         TODO("Not yet implemented")
     }
 
