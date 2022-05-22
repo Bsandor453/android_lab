@@ -41,7 +41,7 @@ class DetailsRepository @Inject constructor(
         val historicalPriceList = mutableListOf<HistoricalPrice>()
         for (historicalPrice in history.prices) {
             val newHistoricalPrice =
-                HistoricalPrice(historicalPrice[0].toInt(), historicalPrice[1].toDouble())
+                HistoricalPrice(historicalPrice[0].toLong(), historicalPrice[1].toDouble())
             historicalPriceList.add(newHistoricalPrice)
         }
         val newHistory = PriceHistory(
