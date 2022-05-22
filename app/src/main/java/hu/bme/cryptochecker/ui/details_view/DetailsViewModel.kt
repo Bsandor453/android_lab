@@ -14,13 +14,13 @@ import javax.inject.Inject
 class DetailsViewModel @Inject constructor(private val detailsRepository: DetailsRepository) : ViewModel() {
 
     fun getHistories(coinId: String): LiveData<List<PriceHistory>> {
-        return Transformations.map(detailsRepository.getCurrencyWithHistory(coinId)) {
+        return Transformations.map(detailsRepository.getCurrencyWithHistories(coinId)) {
             it.priceHistories
         }
     }
 
     fun getDescription(coinId: String): LiveData<String> {
-        return Transformations.map(detailsRepository.getCurrencyWithHistory(coinId)) {
+        return Transformations.map(detailsRepository.getCurrencyWithHistories(coinId)) {
             it.cryptocurrency.description
         }
     }

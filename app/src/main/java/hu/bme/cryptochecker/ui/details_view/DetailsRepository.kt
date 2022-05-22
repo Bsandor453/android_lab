@@ -15,7 +15,7 @@ class DetailsRepository @Inject constructor(
     @Named("CryptoDao") private val cryptocurrencyDao: CryptocurrencyDao
 ) {
 
-    fun getCurrencyWithHistory(coinId: String): LiveData<CryptocurrencyWithPriceHistories> {
+    fun getCurrencyWithHistories(coinId: String): LiveData<CryptocurrencyWithPriceHistories> {
         return cryptocurrencyDao.getCryptocurrencyWithPriceHistories(coinId)
     }
 
@@ -26,6 +26,12 @@ class DetailsRepository @Inject constructor(
 
         // Get the 1 day price history
         savePriceHistoryLocal(1, coinId)
+
+        // Get the 7 days price history
+        savePriceHistoryLocal(7, coinId)
+
+        // Get the 30 days price history
+        savePriceHistoryLocal(30, coinId)
     }
 
     private suspend fun getHistoricalPriceFromApi(coinId: String, daysAgo: Int): HistoricalPricesDto {
@@ -39,18 +45,26 @@ class DetailsRepository @Inject constructor(
     private suspend fun savePriceHistoryLocal(days: Int, coinId: String) {
         val history = getHistoricalPriceFromApi(coinId, days)
         val historicalPriceList = mutableListOf<HistoricalPrice>()
+
         for (historicalPrice in history.prices) {
             val newHistoricalPrice =
                 HistoricalPrice(historicalPrice[0].toLong(), historicalPrice[1].toDouble())
             historicalPriceList.add(newHistoricalPrice)
         }
+
         val newHistory = PriceHistory(
             0, // Auto-generated
             days,
             historicalPriceList,
             coinId
         )
-        cryptocurrencyDao.addHistory(newHistory)
+
+        if (cryptocurrencyDao.countCryptocurrencyHistory(coinId, days) == 0) {
+            cryptocurrencyDao.addHistory(newHistory)
+        } else {
+            cryptocurrencyDao.updateCryptocurrencyHistory(newHistory.history, coinId, days)
+        }
+
     }
 
 }

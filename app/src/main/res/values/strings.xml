@@ -6,4 +6,7 @@
     <string name="coin_symbol_text">(%s)</string>
     <string name="set_favourite_text">Add favourite</string>
     <string name="remove_favourite_text">Remove favourite</string>
+    <string name="one_day_button_text">1 day</string>
+    <string name="seven_day_button_text">7 days</string>
+    <string name="thirty_day_button_text">30 days</string>
 </resources>

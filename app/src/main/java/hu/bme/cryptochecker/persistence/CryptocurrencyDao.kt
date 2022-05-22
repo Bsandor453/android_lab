@@ -3,10 +3,13 @@ package hu.bme.cryptochecker.persistence
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import hu.bme.cryptochecker.model.db.Cryptocurrency
+import hu.bme.cryptochecker.model.db.HistoricalPrice
 import hu.bme.cryptochecker.model.db.PriceHistory
+import hu.bme.cryptochecker.model.db.converters.PriceHistoryConverter
 import hu.bme.cryptochecker.model.db.relations.CryptocurrencyWithPriceHistories
 
 @Dao
+@TypeConverters(PriceHistoryConverter::class)
 interface CryptocurrencyDao {
 
     // Create
@@ -31,6 +34,10 @@ interface CryptocurrencyDao {
     @Query("SELECT * FROM coins WHERE id = :id")
     fun getCryptocurrencyWithPriceHistories(id: String): LiveData<CryptocurrencyWithPriceHistories>
 
+    @Transaction
+    @Query("SELECT COUNT(*) FROM coins INNER JOIN history ON coins.id = history.cryptoId WHERE coins.id = :id AND history.daysAgo = :days")
+    fun countCryptocurrencyHistory(id: String, days: Int): Int
+
     // Update
     @Update
     suspend fun updateCryptocurrency(cryptocurrency: Cryptocurrency)
@@ -42,6 +49,10 @@ interface CryptocurrencyDao {
     @Transaction
     @Query("UPDATE coins SET description = :description WHERE id = :id")
     suspend fun updateCryptocurrencyDescription(id: String, description: String)
+
+    @Transaction
+    @Query("UPDATE history SET history = :coinHistory WHERE cryptoId = :coinId AND daysAgo = :daysAgo")
+    fun updateCryptocurrencyHistory(coinHistory: List<HistoricalPrice>, coinId: String, daysAgo: Int)
 
     // Delete
     @Delete
