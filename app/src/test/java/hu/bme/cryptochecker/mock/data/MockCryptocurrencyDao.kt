@@ -38,7 +38,7 @@ class MockCryptocurrencyDao: CryptocurrencyDao {
         TODO("Not yet implemented")
     }
 
-    override suspend fun getCryptocurrencyWithPriceHistories(id: String): LiveData<CryptocurrencyWithPriceHistories> {
+    override fun getCryptocurrencyWithPriceHistories(id: String): LiveData<CryptocurrencyWithPriceHistories> {
         TODO("Not yet implemented")
     }
 
