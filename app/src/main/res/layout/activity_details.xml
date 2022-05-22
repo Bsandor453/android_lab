@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="15dp"
         tools:context=".ui.details_view.DetailsActivity">
 
         <ImageView
@@ -25,9 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Bitcoin"
-            android:textSize="25sp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/coin_default_name"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/coin_image"
             app:layout_constraintTop_toTopOf="@+id/coin_image" />
@@ -37,33 +37,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
             android:text="(BTC)"
             android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/name_text"
-            app:layout_constraintTop_toTopOf="@+id/coin_image" />
+            app:layout_constraintStart_toEndOf="@+id/coin_image"
+            app:layout_constraintTop_toBottomOf="@+id/name_text" />
 
         <TextView
             android:id="@+id/price_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="$ 30000"
-            android:textSize="25sp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/coin_default_price"
+            android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/coin_image"
-            app:layout_constraintTop_toTopOf="@+id/coin_image" />
+            app:layout_constraintBottom_toBottomOf="@+id/coin_image"
+            app:layout_constraintStart_toEndOf="@+id/coin_image" />
 
         <TextView
             android:id="@+id/description_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:lineSpacingMultiplier="1.3"
+            android:fontFamily="@font/roboto"
             android:gravity="fill_horizontal"
             android:justificationMode="inter_word"
-            android:text="Description"
+            android:text="@string/default_description_text"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/price_chart" />
 
@@ -71,8 +78,9 @@
             android:id="@+id/price_chart"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toggle_button_group" />
 
@@ -87,24 +95,33 @@
             app:layout_constraintTop_toBottomOf="@+id/coin_image">
 
             <com.google.android.material.button.MaterialButton
-                style="?attr/materialButtonOutlinedStyle"
                 android:id="@+id/one_day_button"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/one_day_button_text" />
 
             <com.google.android.material.button.MaterialButton
-                style="?attr/materialButtonOutlinedStyle"
                 android:id="@+id/seven_day_button"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/seven_day_button_text" />
 
             <com.google.android.material.button.MaterialButton
-                style="?attr/materialButtonOutlinedStyle"
                 android:id="@+id/thirty_day_button"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/thirty_day_button_text" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 

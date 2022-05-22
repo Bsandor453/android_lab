@@ -15,4 +15,5 @@
     <string name="coin_default_price">$ 30000</string>
     <string name="favourite_button_text">Add favourite</string>
     <string name="details_button_text">Details...</string>
+    <string name="default_description_text">Description</string>
 </resources>
