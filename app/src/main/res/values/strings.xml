@@ -9,4 +9,10 @@
     <string name="one_day_button_text">1 day</string>
     <string name="seven_day_button_text">7 days</string>
     <string name="thirty_day_button_text">30 days</string>
+    <string name="coin_image_description">Coin image</string>
+    <string name="coin_default_name">Bitcoin</string>
+    <string name="coin_default_symbol">(BTC)</string>
+    <string name="coin_default_price">$ 30000</string>
+    <string name="favourite_button_text">Add favourite</string>
+    <string name="details_button_text">Details...</string>
 </resources>

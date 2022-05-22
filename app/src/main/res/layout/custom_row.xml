@@ -8,9 +8,11 @@
     android:padding="10dp">
 
     <ImageView
+        android:contentDescription="@string/coin_image_description"
         android:id="@+id/coin_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,10 +22,9 @@
         android:id="@+id/name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Bitcoin"
-        android:textSize="25sp"
+        android:layout_marginStart="10dp"
+        android:text="@string/coin_default_name"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/coin_image"
         app:layout_constraintTop_toTopOf="@+id/coin_image" />
@@ -33,10 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="(BTC)"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:text="@string/coin_default_symbol"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/name_text"
         app:layout_constraintTop_toTopOf="@+id/coin_image" />
 
@@ -45,21 +44,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        android:text="$ 30000"
+        android:text="@string/coin_default_price"
         android:textSize="25sp"
-        android:textStyle="bold"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toEndOf="@+id/coin_image"
-        app:layout_constraintTop_toTopOf="@+id/coin_image" />
+        app:layout_constraintTop_toBottomOf="@id/name_text" />
 
     <Button
         android:id="@+id/button_favourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="22dp"
-        android:textSize="10sp"
-        android:text="Add favourite"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto"
+        android:padding="5dp"
+        android:text="@string/favourite_button_text"
+        android:textSize="13sp"
+        android:textAllCaps="false"
         app:layout_constraintStart_toEndOf="@+id/coin_image"
         app:layout_constraintTop_toBottomOf="@+id/price_text" />
 
@@ -68,10 +69,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="22dp"
-        android:text="Details"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/roboto"
+        android:padding="5dp"
+        android:text="@string/details_button_text"
+        android:textSize="13sp"
+        android:textAllCaps="false"
         app:layout_constraintStart_toEndOf="@+id/button_favourite"
         app:layout_constraintTop_toBottomOf="@+id/price_text" />
 
