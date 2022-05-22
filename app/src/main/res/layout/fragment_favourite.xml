@@ -3,26 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
-    tools:context=".ui.main.fragments.favourite.FavouriteCryptoFragment">
+    android:background="@color/white"
+    tools:context=".ui.main_view.fragments.favourite.FavouriteCryptoFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fragment_favourite_text"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        android:textColor="@color/black"
-        />
-
-    <Button
-        android:id="@+id/details_button"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_centerInParent="true"
-        android:backgroundTint="@color/black"
-        android:text="Details"
-        android:translationY="50dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/coin_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

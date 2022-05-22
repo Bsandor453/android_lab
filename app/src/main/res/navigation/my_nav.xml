@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/popularCryptoFragment">
+
+    <fragment
+        android:id="@+id/popularCryptoFragment"
+        android:name="hu.bme.cryptochecker.ui.main_view.fragments.popular.PopularCryptoFragment"
+        android:label="Popular coins"
+        tools:layout="@layout/fragment_popular" >
+        <action
+            android:id="@+id/action_popularCryptoFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_popularCryptoFragment_to_favouriteCryptoFragment"
+            app:destination="@id/favouriteCryptoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteCryptoFragment"
+        android:name="hu.bme.cryptochecker.ui.main_view.fragments.favourite.FavouriteCryptoFragment"
+        android:label="Favourite coins"
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteCryptoFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+        <action
+            android:id="@+id/action_favouriteCryptoFragment_to_popularCryptoFragment"
+            app:destination="@id/popularCryptoFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="hu.bme.cryptochecker.ui.details_view.DetailsActivity"
+        android:label="Coin details"
+        tools:layout="@layout/activity_details" >
+        <argument
+            android:name="selectedCoin"
+            app:argType="hu.bme.cryptochecker.model.db.Cryptocurrency" />
+    </activity>
+</navigation>
