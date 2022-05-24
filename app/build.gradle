@@ -7,6 +7,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'jacoco'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -129,11 +130,14 @@ dependencies {
     testImplementation 'com.google.dagger:dagger:2.41'
     kaptTest 'com.google.dagger:dagger-compiler:2.41'
 
-    // Firebase BoM (Bills of Material)
+    // Firebase BoM (Bill of Materials)
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
 
     // Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // Firebase SDK for Google Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 }
 
 // Allow references to generated code

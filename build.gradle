@@ -15,8 +15,11 @@ buildscript {
         // Jacoco plugin
         classpath "org.jacoco:org.jacoco.core:0.8.7"
 
-        // Google services plugin
+        // Google Services plugin
         classpath 'com.google.gms:google-services:4.3.10'
+
+        // Firebase Crashlytics plugin
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
     }
 }
 
