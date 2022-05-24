@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Set up crash test button
+        binding.crashTestButton.setOnClickListener {
+            throw RuntimeException("Test Crash") // Force a crash
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
