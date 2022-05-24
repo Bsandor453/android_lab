@@ -5,12 +5,18 @@ buildscript {
         google()
     }
     dependencies {
+        // Dagger Hilt plugin
         classpath('com.google.dagger:hilt-android-gradle-plugin:2.40.1')
 
+        // Navigation Safeargs plugin
         def nav_version = "2.4.2"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
 
-        classpath "org.jacoco:org.jacoco.core:0.8.6"
+        // Jacoco plugin
+        classpath "org.jacoco:org.jacoco.core:0.8.7"
+
+        // Google services plugin
+        classpath 'com.google.gms:google-services:4.3.10'
     }
 }
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "590079964130",
+    "project_id": "crypto-checker-acdd7",
+    "storage_bucket": "crypto-checker-acdd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590079964130:android:c6e6d1ac464266aa61bfbb",
+        "android_client_info": {
+          "package_name": "hu.bme.cryptochecker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590079964130-4egemg67c7lmecl0ep056qoppajh1ucc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW79MV9NbZGjKzHuJgf2-988bx0pgUXJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590079964130-4egemg67c7lmecl0ep056qoppajh1ucc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
